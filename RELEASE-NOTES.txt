@@ -159,6 +159,9 @@ Joda-Time uses annotations from Joda-Convert.
 In the Java programming language, this dependency is optional, however in Scala it is not.
 Scala users must manually add the Joda-Convert v1.2 dependency.
 
+- Fix validation in BasicChronology.getDateTimeMillis
+ Previously this allowed a millisOfDay value one too large
+
 - Javadoc fix to MutablePeriod [3413869]
 
 
