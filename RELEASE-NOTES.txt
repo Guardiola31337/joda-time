@@ -164,6 +164,9 @@ Scala users must manually add the Joda-Convert v1.2 dependency.
 
 - Javadoc fix to MutablePeriod [3413869]
 
+- Fixed Spanish translation of day - dia now has accented i
+  https://github.com/JodaOrg/joda-time/pull/5
+
 
 Scala
 --------
