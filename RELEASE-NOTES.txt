@@ -233,6 +233,9 @@ Scala users must manually add the Joda-Convert v1.2 dependency.
   When LocalTime is non-null, it no longer uses DateTimeUtils.currentTimeMillis()
   This change resulted in the semantic change detailed above
 
+- Fixed Spanish translation of day - dia now has accented i
+  https://github.com/JodaOrg/joda-time/pull/5
+
 
 Scala
 --------
