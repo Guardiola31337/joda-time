@@ -180,6 +180,8 @@ Scala users must manually add the Joda-Convert v1.2 dependency.
 
 - Better thread-safety in ISODateTimeFormat [#45]
 
+- Better Javadoc for thread saefty of DateTimeUtils [#67]
+
 
 Scala
 --------
