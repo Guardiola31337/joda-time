@@ -182,6 +182,8 @@ Scala users must manually add the Joda-Convert v1.2 dependency.
 
 - Better Javadoc for thread saefty of DateTimeUtils [#67]
 
+- Better Javadoc for DateTimeComparator [#73]
+
 
 Scala
 --------
