@@ -253,6 +253,8 @@ Scala users must manually add the Joda-Convert v1.2 dependency.
 
 - Better Javadoc for DateTimeComparator [#73]
 
+- Better Javadoc for DateTimeFormatter parsing [#78]
+
 
 Scala
 --------
