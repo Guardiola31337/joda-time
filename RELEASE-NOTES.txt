@@ -34,6 +34,9 @@ Changes in 2.8.1
 - Fix overflow bug in intervals [#315]
 
 
+- Increased performance of symbols lookup [#143]
+  No API change
+
 
 Changes in 2.8.0
 ================
