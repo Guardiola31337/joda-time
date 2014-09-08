@@ -32,7 +32,12 @@ Build system - Yes
 
 Binary compatible - Yes
 
-Source compatible - Yes
+Source compatible - Yes, except
+ - The constant DateTimeZone.UTC has changed implementation type
+   It used to be a FixedDateTimeZone, now it is a UTCDateTimeZone
+   This avoids a potential deadlock scenario
+   Serialization is unaffected
+   This change will only be observable if you cast the UTC constant to FixedDateTimeZone
 
 Serialization compatible - Yes
 
@@ -185,6 +190,10 @@ Scala users must manually add the Joda-Convert v1.2 dependency.
 - Better Javadoc for DateTimeComparator [#73]
 
 - Better Javadoc for DateTimeFormat fraction of second [#62]
+
+- Fix deadlock [#171]
+  Referencing DateTimeZone and FixedDateTimeZone from two threads at startup could deadlock
+  Add package scoped UTCDateTimeZone class to avoid this
 
 
 Scala
