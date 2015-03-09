@@ -30,7 +30,7 @@ import org.joda.time.format.PeriodFormatter;
  * type-safe way of representing a number of days in an application.
  * <p>
  * The number of days is set in the constructor, and may be queried using
- * <code>getDays()</code>. Basic mathematical operations are provided -
+ * <code>retrieveDays()</code>. Basic mathematical operations are provided -
  * <code>plus()</code>, <code>minus()</code>, <code>multipliedBy()</code> and
  * <code>dividedBy()</code>.
  * <p>
@@ -42,25 +42,25 @@ import org.joda.time.format.PeriodFormatter;
 public final class Days extends BaseSingleFieldPeriod {
 
     /** Constant representing zero days. */
-    public static final Days ZERO = new Days(0);
+    public static final Days ZERO = Pool.retrieveDays(0);
     /** Constant representing one day. */
-    public static final Days ONE = new Days(1);
+    public static final Days ONE = Pool.retrieveDays(1);
     /** Constant representing two days. */
-    public static final Days TWO = new Days(2);
+    public static final Days TWO = Pool.retrieveDays(2);
     /** Constant representing three days. */
-    public static final Days THREE = new Days(3);
+    public static final Days THREE = Pool.retrieveDays(3);
     /** Constant representing four days. */
-    public static final Days FOUR = new Days(4);
+    public static final Days FOUR = Pool.retrieveDays(4);
     /** Constant representing five days. */
-    public static final Days FIVE = new Days(5);
+    public static final Days FIVE = Pool.retrieveDays(5);
     /** Constant representing six days. */
-    public static final Days SIX = new Days(6);
+    public static final Days SIX = Pool.retrieveDays(6);
     /** Constant representing seven days. */
-    public static final Days SEVEN = new Days(7);
+    public static final Days SEVEN = Pool.retrieveDays(7);
     /** Constant representing the maximum number of days that can be stored in this object. */
-    public static final Days MAX_VALUE = new Days(Integer.MAX_VALUE);
+    public static final Days MAX_VALUE = Pool.retrieveDays(Integer.MAX_VALUE);
     /** Constant representing the minimum number of days that can be stored in this object. */
-    public static final Days MIN_VALUE = new Days(Integer.MIN_VALUE);
+    public static final Days MIN_VALUE = Pool.retrieveDays(Integer.MIN_VALUE);
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.days());
@@ -77,10 +77,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @return the instance of Days
      */
     public static Days days(int days) {
-       MyPool cases = new MyPool();
-
-        return cases.getInstance(days);
-
+        return Pool.retrieveDays(days);
     }
 
     //-----------------------------------------------------------------------
@@ -192,7 +189,7 @@ public final class Days extends BaseSingleFieldPeriod {
      *
      * @param days  the number of days to represent
      */
-    private Days(int days) {
+    protected Days(int days) {
         super(days);
     }
 
@@ -468,30 +465,4 @@ public final class Days extends BaseSingleFieldPeriod {
         return "P" + String.valueOf(getValue()) + "D";
     }
 
-    private static class MyPool extends Pool {
-        public MyPool() {
-            super();
-            this.add(0, ZERO);
-            this.add(1, ONE);
-            this.add(2, TWO);
-            this.add(3, THREE);
-            this.add(4, FOUR);
-            this.add(5, FIVE);
-            this.add(6, SIX);
-            this.add(7, SEVEN);
-            this.add(Integer.MAX_VALUE, MAX_VALUE);
-            this.add(Integer.MIN_VALUE, MIN_VALUE);
-        }
-
-        @Override
-        public Days getInstance(int days) {
-            Object result = super.getInstance(days);
-
-            if (result == null) {
-                result =  new Days(days);
-            }
-
-            return (Days) result;
-        }
-    }
 }

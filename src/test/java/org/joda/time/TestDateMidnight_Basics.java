@@ -54,7 +54,7 @@ public class TestDateMidnight_Basics extends TestCase {
     private static final DateTimeZone NEWYORK = DateTimeZone.forID("America/New_York");
 
     // the default time zone is set to LONDON in setUp()
-    // we have to hard code LONDON here (instead of ISOChronology.getInstance() etc.)
+    // we have to hard code LONDON here (instead of ISOChronology.retrieve() etc.)
     // as TestAll sets up a different time zone for better all-round testing
     private static final ISOChronology ISO_DEFAULT = ISOChronology.getInstance(LONDON);
     private static final ISOChronology ISO_PARIS = ISOChronology.getInstance(PARIS);

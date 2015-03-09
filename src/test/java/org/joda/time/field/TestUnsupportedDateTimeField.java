@@ -52,7 +52,7 @@ public class TestUnsupportedDateTimeField extends TestCase {
     }
 
     /**
-     * Passing null values into UnsupportedDateTimeField.getInstance() should
+     * Passing null values into UnsupportedDateTimeField.retrieve() should
      * throw an IllegalArguementsException
      */
     public void testNullValuesToGetInstanceThrowsException() {
@@ -67,8 +67,8 @@ public class TestUnsupportedDateTimeField extends TestCase {
 
     /**
      * 
-     * This test exercises the logic in UnsupportedDateTimeField.getInstance. If
-     * getInstance() is invoked twice with: - the same DateTimeFieldType -
+     * This test exercises the logic in UnsupportedDateTimeField.retrieve. If
+     * retrieve() is invoked twice with: - the same DateTimeFieldType -
      * different duration fields
      * 
      * Then the field returned in the first invocation should not be equal to
@@ -79,7 +79,7 @@ public class TestUnsupportedDateTimeField extends TestCase {
     public void testDifferentDurationReturnDifferentObjects() {
 
         /**
-         * The fields returned by getInstance should be the same when the
+         * The fields returned by retrieve should be the same when the
          * duration is the same for both method calls.
          */
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
@@ -91,7 +91,7 @@ public class TestUnsupportedDateTimeField extends TestCase {
         assertSame(fieldOne, fieldTwo);
 
         /**
-         * The fields returned by getInstance should NOT be the same when the
+         * The fields returned by retrieve should NOT be the same when the
          * duration is the same for both method calls.
          */
         DateTimeField fieldThree = UnsupportedDateTimeField.getInstance(

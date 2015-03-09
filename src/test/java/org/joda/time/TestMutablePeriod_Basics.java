@@ -177,14 +177,14 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    //-----------------------------------------------------------------------
 //    public void testAddTo1() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, 1);
-//        expected = ISOChronology.getInstance().months().add(expected, 2);
-//        expected = ISOChronology.getInstance().weeks().add(expected, 3);
-//        expected = ISOChronology.getInstance().days().add(expected, 4);
-//        expected = ISOChronology.getInstance().hours().add(expected, 5);
-//        expected = ISOChronology.getInstance().minutes().add(expected, 6);
-//        expected = ISOChronology.getInstance().seconds().add(expected, 7);
-//        expected = ISOChronology.getInstance().millis().add(expected, 8);
+//        expected = ISOChronology.retrieve().years().add(expected, 1);
+//        expected = ISOChronology.retrieve().months().add(expected, 2);
+//        expected = ISOChronology.retrieve().weeks().add(expected, 3);
+//        expected = ISOChronology.retrieve().days().add(expected, 4);
+//        expected = ISOChronology.retrieve().hours().add(expected, 5);
+//        expected = ISOChronology.retrieve().minutes().add(expected, 6);
+//        expected = ISOChronology.retrieve().seconds().add(expected, 7);
+//        expected = ISOChronology.retrieve().millis().add(expected, 8);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        long added = test.addTo(TEST_TIME_NOW, 1);
@@ -193,14 +193,14 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    
 //    public void testAddTo2() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, -2);
-//        expected = ISOChronology.getInstance().months().add(expected, -4);
-//        expected = ISOChronology.getInstance().weeks().add(expected, -6);
-//        expected = ISOChronology.getInstance().days().add(expected, -8);
-//        expected = ISOChronology.getInstance().hours().add(expected, -10);
-//        expected = ISOChronology.getInstance().minutes().add(expected, -12);
-//        expected = ISOChronology.getInstance().seconds().add(expected, -14);
-//        expected = ISOChronology.getInstance().millis().add(expected, -16);
+//        expected = ISOChronology.retrieve().years().add(expected, -2);
+//        expected = ISOChronology.retrieve().months().add(expected, -4);
+//        expected = ISOChronology.retrieve().weeks().add(expected, -6);
+//        expected = ISOChronology.retrieve().days().add(expected, -8);
+//        expected = ISOChronology.retrieve().hours().add(expected, -10);
+//        expected = ISOChronology.retrieve().minutes().add(expected, -12);
+//        expected = ISOChronology.retrieve().seconds().add(expected, -14);
+//        expected = ISOChronology.retrieve().millis().add(expected, -16);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        long added = test.addTo(TEST_TIME_NOW, -2);
@@ -224,17 +224,17 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    //-----------------------------------------------------------------------
 //    public void testAddToWithChronology1() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, 1);
-//        expected = ISOChronology.getInstance().months().add(expected, 2);
-//        expected = ISOChronology.getInstance().weeks().add(expected, 3);
-//        expected = ISOChronology.getInstance().days().add(expected, 4);
-//        expected = ISOChronology.getInstance().hours().add(expected, 5);
-//        expected = ISOChronology.getInstance().minutes().add(expected, 6);
-//        expected = ISOChronology.getInstance().seconds().add(expected, 7);
-//        expected = ISOChronology.getInstance().millis().add(expected, 8);
+//        expected = ISOChronology.retrieve().years().add(expected, 1);
+//        expected = ISOChronology.retrieve().months().add(expected, 2);
+//        expected = ISOChronology.retrieve().weeks().add(expected, 3);
+//        expected = ISOChronology.retrieve().days().add(expected, 4);
+//        expected = ISOChronology.retrieve().hours().add(expected, 5);
+//        expected = ISOChronology.retrieve().minutes().add(expected, 6);
+//        expected = ISOChronology.retrieve().seconds().add(expected, 7);
+//        expected = ISOChronology.retrieve().millis().add(expected, 8);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
-//        long added = test.addTo(TEST_TIME_NOW, 1, ISOChronology.getInstance());
+//        long added = test.addTo(TEST_TIME_NOW, 1, ISOChronology.retrieve());
 //        assertEquals(expected, added);
 //    }
 //    
@@ -256,14 +256,14 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    
 //    public void testAddToWithChronology3() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, -2);
-//        expected = ISOChronology.getInstance().months().add(expected, -4);
-//        expected = ISOChronology.getInstance().weeks().add(expected, -6);
-//        expected = ISOChronology.getInstance().days().add(expected, -8);
-//        expected = ISOChronology.getInstance().hours().add(expected, -10);
-//        expected = ISOChronology.getInstance().minutes().add(expected, -12);
-//        expected = ISOChronology.getInstance().seconds().add(expected, -14);
-//        expected = ISOChronology.getInstance().millis().add(expected, -16);
+//        expected = ISOChronology.retrieve().years().add(expected, -2);
+//        expected = ISOChronology.retrieve().months().add(expected, -4);
+//        expected = ISOChronology.retrieve().weeks().add(expected, -6);
+//        expected = ISOChronology.retrieve().days().add(expected, -8);
+//        expected = ISOChronology.retrieve().hours().add(expected, -10);
+//        expected = ISOChronology.retrieve().minutes().add(expected, -12);
+//        expected = ISOChronology.retrieve().seconds().add(expected, -14);
+//        expected = ISOChronology.retrieve().millis().add(expected, -16);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        long added = test.addTo(TEST_TIME_NOW, -2, null);  // no chrono so use default
@@ -273,36 +273,36 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    //-----------------------------------------------------------------------
 //    public void testAddToRI1() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, 1);
-//        expected = ISOChronology.getInstance().months().add(expected, 2);
-//        expected = ISOChronology.getInstance().weeks().add(expected, 3);
-//        expected = ISOChronology.getInstance().days().add(expected, 4);
-//        expected = ISOChronology.getInstance().hours().add(expected, 5);
-//        expected = ISOChronology.getInstance().minutes().add(expected, 6);
-//        expected = ISOChronology.getInstance().seconds().add(expected, 7);
-//        expected = ISOChronology.getInstance().millis().add(expected, 8);
+//        expected = ISOChronology.retrieve().years().add(expected, 1);
+//        expected = ISOChronology.retrieve().months().add(expected, 2);
+//        expected = ISOChronology.retrieve().weeks().add(expected, 3);
+//        expected = ISOChronology.retrieve().days().add(expected, 4);
+//        expected = ISOChronology.retrieve().hours().add(expected, 5);
+//        expected = ISOChronology.retrieve().minutes().add(expected, 6);
+//        expected = ISOChronology.retrieve().seconds().add(expected, 7);
+//        expected = ISOChronology.retrieve().millis().add(expected, 8);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        DateTime added = test.addTo(new Instant(), 1);  // Instant has no time zone, use default
 //        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(), added.getChronology());
+//        assertEquals(ISOChronology.retrieve(), added.getChronology());
 //    }
 //    
 //    public void testAddToRI2() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, -2);
-//        expected = ISOChronology.getInstance().months().add(expected, -4);
-//        expected = ISOChronology.getInstance().weeks().add(expected, -6);
-//        expected = ISOChronology.getInstance().days().add(expected, -8);
-//        expected = ISOChronology.getInstance().hours().add(expected, -10);
-//        expected = ISOChronology.getInstance().minutes().add(expected, -12);
-//        expected = ISOChronology.getInstance().seconds().add(expected, -14);
-//        expected = ISOChronology.getInstance().millis().add(expected, -16);
+//        expected = ISOChronology.retrieve().years().add(expected, -2);
+//        expected = ISOChronology.retrieve().months().add(expected, -4);
+//        expected = ISOChronology.retrieve().weeks().add(expected, -6);
+//        expected = ISOChronology.retrieve().days().add(expected, -8);
+//        expected = ISOChronology.retrieve().hours().add(expected, -10);
+//        expected = ISOChronology.retrieve().minutes().add(expected, -12);
+//        expected = ISOChronology.retrieve().seconds().add(expected, -14);
+//        expected = ISOChronology.retrieve().millis().add(expected, -16);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(new Instant(), -2);  // Instant has no time zone, use default
 //        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(), added.getChronology());
+//        assertEquals(ISOChronology.retrieve(), added.getChronology());
 //    }
 //    
 //    public void testAddToRI3() {
@@ -324,49 +324,49 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    
 //    public void testAddToRI4() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance(PARIS).years().add(expected, -2);
-//        expected = ISOChronology.getInstance(PARIS).months().add(expected, -4);
-//        expected = ISOChronology.getInstance(PARIS).weeks().add(expected, -6);
-//        expected = ISOChronology.getInstance(PARIS).days().add(expected, -8);
-//        expected = ISOChronology.getInstance(PARIS).hours().add(expected, -10);
-//        expected = ISOChronology.getInstance(PARIS).minutes().add(expected, -12);
-//        expected = ISOChronology.getInstance(PARIS).seconds().add(expected, -14);
-//        expected = ISOChronology.getInstance(PARIS).millis().add(expected, -16);
+//        expected = ISOChronology.retrieve(PARIS).years().add(expected, -2);
+//        expected = ISOChronology.retrieve(PARIS).months().add(expected, -4);
+//        expected = ISOChronology.retrieve(PARIS).weeks().add(expected, -6);
+//        expected = ISOChronology.retrieve(PARIS).days().add(expected, -8);
+//        expected = ISOChronology.retrieve(PARIS).hours().add(expected, -10);
+//        expected = ISOChronology.retrieve(PARIS).minutes().add(expected, -12);
+//        expected = ISOChronology.retrieve(PARIS).seconds().add(expected, -14);
+//        expected = ISOChronology.retrieve(PARIS).millis().add(expected, -16);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(new DateTime(PARIS), -2);  // DateTime has PARIS time zone
 //        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(PARIS), added.getChronology());
+//        assertEquals(ISOChronology.retrieve(PARIS), added.getChronology());
 //    }
 //    
 //    public void testAddToRI5() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, -2);
-//        expected = ISOChronology.getInstance().months().add(expected, -4);
-//        expected = ISOChronology.getInstance().weeks().add(expected, -6);
-//        expected = ISOChronology.getInstance().days().add(expected, -8);
-//        expected = ISOChronology.getInstance().hours().add(expected, -10);
-//        expected = ISOChronology.getInstance().minutes().add(expected, -12);
-//        expected = ISOChronology.getInstance().seconds().add(expected, -14);
-//        expected = ISOChronology.getInstance().millis().add(expected, -16);
+//        expected = ISOChronology.retrieve().years().add(expected, -2);
+//        expected = ISOChronology.retrieve().months().add(expected, -4);
+//        expected = ISOChronology.retrieve().weeks().add(expected, -6);
+//        expected = ISOChronology.retrieve().days().add(expected, -8);
+//        expected = ISOChronology.retrieve().hours().add(expected, -10);
+//        expected = ISOChronology.retrieve().minutes().add(expected, -12);
+//        expected = ISOChronology.retrieve().seconds().add(expected, -14);
+//        expected = ISOChronology.retrieve().millis().add(expected, -16);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(null, -2);  // null has no time zone, use default
 //        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(), added.getChronology());
+//        assertEquals(ISOChronology.retrieve(), added.getChronology());
 //    }
 //    
 //    //-----------------------------------------------------------------------
 //    public void testAddIntoRWI1() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, 1);
-//        expected = ISOChronology.getInstance().months().add(expected, 2);
-//        expected = ISOChronology.getInstance().weeks().add(expected, 3);
-//        expected = ISOChronology.getInstance().days().add(expected, 4);
-//        expected = ISOChronology.getInstance().hours().add(expected, 5);
-//        expected = ISOChronology.getInstance().minutes().add(expected, 6);
-//        expected = ISOChronology.getInstance().seconds().add(expected, 7);
-//        expected = ISOChronology.getInstance().millis().add(expected, 8);
+//        expected = ISOChronology.retrieve().years().add(expected, 1);
+//        expected = ISOChronology.retrieve().months().add(expected, 2);
+//        expected = ISOChronology.retrieve().weeks().add(expected, 3);
+//        expected = ISOChronology.retrieve().days().add(expected, 4);
+//        expected = ISOChronology.retrieve().hours().add(expected, 5);
+//        expected = ISOChronology.retrieve().minutes().add(expected, 6);
+//        expected = ISOChronology.retrieve().seconds().add(expected, 7);
+//        expected = ISOChronology.retrieve().millis().add(expected, 8);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        MutableDateTime mdt = new MutableDateTime();
@@ -376,14 +376,14 @@ public class TestMutablePeriod_Basics extends TestCase {
 //    
 //    public void testAddIntoRWI2() {
 //        long expected = TEST_TIME_NOW;
-//        expected = ISOChronology.getInstance().years().add(expected, -2);
-//        expected = ISOChronology.getInstance().months().add(expected, -4);
-//        expected = ISOChronology.getInstance().weeks().add(expected, -6);
-//        expected = ISOChronology.getInstance().days().add(expected, -8);
-//        expected = ISOChronology.getInstance().hours().add(expected, -10);
-//        expected = ISOChronology.getInstance().minutes().add(expected, -12);
-//        expected = ISOChronology.getInstance().seconds().add(expected, -14);
-//        expected = ISOChronology.getInstance().millis().add(expected, -16);
+//        expected = ISOChronology.retrieve().years().add(expected, -2);
+//        expected = ISOChronology.retrieve().months().add(expected, -4);
+//        expected = ISOChronology.retrieve().weeks().add(expected, -6);
+//        expected = ISOChronology.retrieve().days().add(expected, -8);
+//        expected = ISOChronology.retrieve().hours().add(expected, -10);
+//        expected = ISOChronology.retrieve().minutes().add(expected, -12);
+//        expected = ISOChronology.retrieve().seconds().add(expected, -14);
+//        expected = ISOChronology.retrieve().millis().add(expected, -16);
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        MutableDateTime mdt = new MutableDateTime();

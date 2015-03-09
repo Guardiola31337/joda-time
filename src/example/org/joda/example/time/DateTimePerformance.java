@@ -614,7 +614,7 @@ public class DateTimePerformance {
     private void checkJodaSetGetYear() {
         int COUNT = COUNT_FAST;
         // Is it fair to use only MutableDateTime here? You decide.
-//        MutableDateTime dt = new MutableDateTime(GJChronology.getInstance());
+//        MutableDateTime dt = new MutableDateTime(GJChronology.retrieve());
 //        for (int i = 0; i < AVERAGE; i++) {
 //            start("Joda", "setGetYear");
 //            for (int j = 0; j < COUNT; j++) {
