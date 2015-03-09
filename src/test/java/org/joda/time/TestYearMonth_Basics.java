@@ -46,12 +46,12 @@ public class TestYearMonth_Basics extends TestCase {
     private static final Chronology COPTIC_LONDON = CopticChronology.getInstance(LONDON);
     private static final Chronology COPTIC_TOKYO = CopticChronology.getInstance(TOKYO);
     private static final Chronology COPTIC_UTC = CopticChronology.getInstanceUTC();
-//    private static final Chronology ISO_PARIS = ISOChronology.getInstance(PARIS);
-//    private static final Chronology ISO_LONDON = ISOChronology.getInstance(LONDON);
-//    private static final Chronology ISO_TOKYO = ISOChronology.getInstance(TOKYO);
+//    private static final Chronology ISO_PARIS = ISOChronology.retrieve(PARIS);
+//    private static final Chronology ISO_LONDON = ISOChronology.retrieve(LONDON);
+//    private static final Chronology ISO_TOKYO = ISOChronology.retrieve(TOKYO);
     private static final Chronology ISO_UTC = ISOChronology.getInstanceUTC();
-//    private static final Chronology BUDDHIST_PARIS = BuddhistChronology.getInstance(PARIS);
-//    private static final Chronology BUDDHIST_LONDON = BuddhistChronology.getInstance(LONDON);
+//    private static final Chronology BUDDHIST_PARIS = BuddhistChronology.retrieve(PARIS);
+//    private static final Chronology BUDDHIST_LONDON = BuddhistChronology.retrieve(LONDON);
     private static final Chronology BUDDHIST_TOKYO = BuddhistChronology.getInstance(TOKYO);
     private static final Chronology BUDDHIST_UTC = BuddhistChronology.getInstanceUTC();
     

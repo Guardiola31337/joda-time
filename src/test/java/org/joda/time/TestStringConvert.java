@@ -122,8 +122,8 @@ public class TestStringConvert extends TestCase {
     }
 
 //    public void testInterval() {
-//        DateTime a = new DateTime(2010, 6, 30, 2, 30, 50, 678, ISOChronology.getInstance(ZONE));
-//        DateTime b = new DateTime(2011, 9, 10, 4, 20, 40, 234, ISOChronology.getInstance(ZONE));
+//        DateTime a = new DateTime(2010, 6, 30, 2, 30, 50, 678, ISOChronology.retrieve(ZONE));
+//        DateTime b = new DateTime(2011, 9, 10, 4, 20, 40, 234, ISOChronology.retrieve(ZONE));
 //        Interval test = new Interval(a, b);
 //        String str = StringConvert.INSTANCE.convertToString(test);
 //        assertEquals("2010-06-30T02:30:50.678+02:00/2011-09-10T04:20:40.234+02:00", str);

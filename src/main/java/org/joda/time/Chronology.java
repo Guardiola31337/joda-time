@@ -26,7 +26,7 @@ package org.joda.time;
  * <p>
  * For example, to obtain the current time in the coptic calendar system:
  * <pre>
- * DateTime dt = new DateTime(CopticChronology.getInstance());
+ * DateTime dt = new DateTime(CopticChronology.retrieve());
  * </pre>
  * <p>
  * The provided chronology implementations are:

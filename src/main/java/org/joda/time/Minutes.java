@@ -30,7 +30,7 @@ import org.joda.time.format.PeriodFormatter;
  * type-safe way of representing a number of minutes in an application.
  * <p>
  * The number of minutes is set in the constructor, and may be queried using
- * <code>getMinutes()</code>. Basic mathematical operations are provided -
+ * <code>retrieveMinutes()</code>. Basic mathematical operations are provided -
  * <code>plus()</code>, <code>minus()</code>, <code>multipliedBy()</code> and
  * <code>dividedBy()</code>.
  * <p>
@@ -42,17 +42,17 @@ import org.joda.time.format.PeriodFormatter;
 public final class Minutes extends BaseSingleFieldPeriod {
 
     /** Constant representing zero minutes. */
-    public static final Minutes ZERO = new Minutes(0);
+    public static final Minutes ZERO = Pool.retrieveMinutes(0);
     /** Constant representing one minute. */
-    public static final Minutes ONE = new Minutes(1);
+    public static final Minutes ONE = Pool.retrieveMinutes(1);
     /** Constant representing two minutes. */
-    public static final Minutes TWO = new Minutes(2);
+    public static final Minutes TWO = Pool.retrieveMinutes(2);
     /** Constant representing three minutes. */
-    public static final Minutes THREE = new Minutes(3);
+    public static final Minutes THREE = Pool.retrieveMinutes(3);
     /** Constant representing the maximum number of minutes that can be stored in this object. */
-    public static final Minutes MAX_VALUE = new Minutes(Integer.MAX_VALUE);
+    public static final Minutes MAX_VALUE = Pool.retrieveMinutes(Integer.MAX_VALUE);
     /** Constant representing the minimum number of minutes that can be stored in this object. */
-    public static final Minutes MIN_VALUE = new Minutes(Integer.MIN_VALUE);
+    public static final Minutes MIN_VALUE = Pool.retrieveMinutes(Integer.MIN_VALUE);
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.minutes());
@@ -69,22 +69,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @return the instance of Minutes
      */
     public static Minutes minutes(int minutes) {
-        switch (minutes) {
-            case 0:
-                return ZERO;
-            case 1:
-                return ONE;
-            case 2:
-                return TWO;
-            case 3:
-                return THREE;
-            case Integer.MAX_VALUE:
-                return MAX_VALUE;
-            case Integer.MIN_VALUE:
-                return MIN_VALUE;
-            default:
-                return new Minutes(minutes);
-        }
+        return Pool.retrieveMinutes(minutes);
     }
 
     //-----------------------------------------------------------------------
@@ -194,7 +179,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      *
      * @param minutes  the number of minutes to represent
      */
-    private Minutes(int minutes) {
+    protected Minutes(int minutes) {
         super(minutes);
     }
 

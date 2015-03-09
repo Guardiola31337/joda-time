@@ -404,38 +404,38 @@ public class TestSerialization extends TestCase {
 //    }
 //
 //    public void testStoreSerializedCopticChronology() throws Exception {
-//        CopticChronology test = CopticChronology.getInstance(LONDON);
+//        CopticChronology test = CopticChronology.retrieve(LONDON);
 //        store(test, "CopticChronology.dat");
 //    }
 //
 //    public void testStoreSerializedISOChronology() throws Exception {
-//        ISOChronology test = ISOChronology.getInstance(PARIS);
+//        ISOChronology test = ISOChronology.retrieve(PARIS);
 //        store(test, "ISOChronology.dat");
 //    }
 //
 //    public void testStoreSerializedGJChronology() throws Exception {
-//        GJChronology test = GJChronology.getInstance(TOKYO);
+//        GJChronology test = GJChronology.retrieve(TOKYO);
 //        store(test, "GJChronology.dat");
 //    }
 //
 //    // Format changed in v1.2 - min days in first week not deserialized in v1.0/1.1
 //    public void testStoreSerializedGJChronologyChangedInternals() throws Exception {
-//        GJChronology test = GJChronology.getInstance(PARIS, 123L, 2);
+//        GJChronology test = GJChronology.retrieve(PARIS, 123L, 2);
 //        store(test, "GJChronologyChangedInternals.dat");
 //    }
 //
 //    public void testStoreSerializedGregorianChronology() throws Exception {
-//        GregorianChronology test = GregorianChronology.getInstance(PARIS);
+//        GregorianChronology test = GregorianChronology.retrieve(PARIS);
 //        store(test, "GregorianChronology.dat");
 //    }
 //
 //    public void testStoreSerializedJulianChronology() throws Exception {
-//        JulianChronology test = JulianChronology.getInstance(PARIS);
+//        JulianChronology test = JulianChronology.retrieve(PARIS);
 //        store(test, "JulianChronology.dat");
 //    }
 //
 //    public void testStoreSerializedBuddhistChronology() throws Exception {
-//        BuddhistChronology test = BuddhistChronology.getInstance(PARIS);
+//        BuddhistChronology test = BuddhistChronology.retrieve(PARIS);
 //        store(test, "BuddhistChronology.dat");
 //    }
 //
@@ -450,9 +450,9 @@ public class TestSerialization extends TestCase {
 //    }
 //
 //    public void testStoreSerializedUnsupportedDateTimeField() throws Exception {
-//        UnsupportedDateTimeField test = UnsupportedDateTimeField.getInstance(
+//        UnsupportedDateTimeField test = UnsupportedDateTimeField.retrieve(
 //                DateTimeFieldType.year(),
-//                UnsupportedDurationField.getInstance(DurationFieldType.years()));
+//                UnsupportedDurationField.retrieve(DurationFieldType.years()));
 //        store(test, "UnsupportedDateTimeField.dat");
 //    }
 //
@@ -472,7 +472,7 @@ public class TestSerialization extends TestCase {
 //    }
 //
 //    public void testStoreSerializedUnsupportedDurationField() throws Exception {
-//        UnsupportedDurationField test = UnsupportedDurationField.getInstance(DurationFieldType.eras());
+//        UnsupportedDurationField test = UnsupportedDurationField.retrieve(DurationFieldType.eras());
 //        store(test, "UnsupportedDurationField.dat");
 //    }
 //

@@ -835,9 +835,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(2, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(25, test.getDays());
+//        assertEquals(25, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //    }
@@ -852,9 +852,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(0, test.getMonths());
 //        assertEquals(12, test.getWeeks());
-//        assertEquals(1, test.getDays());
+//        assertEquals(1, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //    }
@@ -870,9 +870,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(0, test.getYears());
 //        assertEquals(15, test.getMonths()); // totalDays=365+85=450=15*30
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(0, test.getDays());
+//        assertEquals(0, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -889,9 +889,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(0, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(85, test.getDays());
+//        assertEquals(85, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -908,9 +908,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(0, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(85, test.getDays());
+//        assertEquals(85, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -927,9 +927,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(2, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(0, test.getDays());
+//        assertEquals(0, test.retrieveDays());
 //        assertEquals(5 + 25 * 24, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -946,9 +946,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(2, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(25, test.getDays());
+//        assertEquals(25, test.retrieveDays());
 //        assertEquals(0, test.getHours());
-//        assertEquals(6 + 5 * 60, test.getMinutes());
+//        assertEquals(6 + 5 * 60, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -965,9 +965,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(2, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(25, test.getDays());
+//        assertEquals(25, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(0, test.getMinutes());
+//        assertEquals(0, test.retrieveMinutes());
 //        assertEquals(7 + 6 * 60, test.getSeconds());
 //        assertEquals(8, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -984,9 +984,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(2, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(25, test.getDays());
+//        assertEquals(25, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(0, test.getSeconds());
 //        assertEquals(8 + 7 * 1000, test.getMillis());
 //        assertEquals(ms, test.toDurationMillis());
@@ -1003,9 +1003,9 @@ public class TestMutablePeriod_Updates extends TestCase {
 //        assertEquals(1, test.getYears());
 //        assertEquals(2, test.getMonths());
 //        assertEquals(0, test.getWeeks());
-//        assertEquals(25, test.getDays());
+//        assertEquals(25, test.retrieveDays());
 //        assertEquals(5, test.getHours());
-//        assertEquals(6, test.getMinutes());
+//        assertEquals(6, test.retrieveMinutes());
 //        assertEquals(7, test.getSeconds());
 //        assertEquals(0, test.getMillis());
 //        assertEquals(ms - 8, test.toDurationMillis());

@@ -40,7 +40,7 @@ import org.joda.time.format.ISODateTimeFormat;
  * <p>
  * The Gregorian calendar replaced the Julian calendar, and the point in time
  * when this chronology switches can be controlled using the second parameter
- * of the getInstance method. By default this cutover is set to the date the
+ * of the retrieve method. By default this cutover is set to the date the
  * Gregorian calendar was first instituted, October 15, 1582.
  * <p>
  * Before this date, this chronology uses the proleptic Julian calendar
