@@ -42,17 +42,17 @@ import org.joda.time.format.PeriodFormatter;
 public final class Years extends BaseSingleFieldPeriod {
 
     /** Constant representing zero years. */
-    public static final Years ZERO = new Years(0);
+    public static final Years ZERO = Pool.retrieveYears(0);
     /** Constant representing one year. */
-    public static final Years ONE = new Years(1);
+    public static final Years ONE = Pool.retrieveYears(1);
     /** Constant representing two years. */
-    public static final Years TWO = new Years(2);
+    public static final Years TWO = Pool.retrieveYears(2);
     /** Constant representing three years. */
-    public static final Years THREE = new Years(3);
+    public static final Years THREE = Pool.retrieveYears(3);
     /** Constant representing the maximum number of years that can be stored in this object. */
-    public static final Years MAX_VALUE = new Years(Integer.MAX_VALUE);
+    public static final Years MAX_VALUE = Pool.retrieveYears(Integer.MAX_VALUE);
     /** Constant representing the minimum number of years that can be stored in this object. */
-    public static final Years MIN_VALUE = new Years(Integer.MIN_VALUE);
+    public static final Years MIN_VALUE = Pool.retrieveYears(Integer.MIN_VALUE);
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.years());
@@ -69,22 +69,7 @@ public final class Years extends BaseSingleFieldPeriod {
      * @return the instance of Years
      */
     public static Years years(int years) {
-        switch (years) {
-            case 0:
-                return ZERO;
-            case 1:
-                return ONE;
-            case 2:
-                return TWO;
-            case 3:
-                return THREE;
-            case Integer.MAX_VALUE:
-                return MAX_VALUE;
-            case Integer.MIN_VALUE:
-                return MIN_VALUE;
-            default:
-                return new Years(years);
-        }
+        return Pool.retrieveYears(years);
     }
 
     //-----------------------------------------------------------------------
@@ -171,7 +156,7 @@ public final class Years extends BaseSingleFieldPeriod {
      *
      * @param years  the number of years to represent
      */
-    private Years(int years) {
+    protected Years(int years) {
         super(years);
     }
 
