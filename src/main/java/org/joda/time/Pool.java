@@ -5,16 +5,19 @@ import java.util.HashMap;
 public class Pool {
 
     private static Pool myInstance;
+    private HashMap<Integer, Years> years;
     private HashMap<Integer, Days> days;
     private HashMap<Integer, Minutes> minutes;
     private HashMap<Integer, Hours> hours;
-    private HashMap<Integer, Years> years;
+    private HashMap<Integer, Months> months;
+
 
     private Pool() {
-        this.hours = new HashMap<Integer, Hours>();
-        this.days = new HashMap<Integer, Days>();
-        this.minutes = new HashMap<Integer, Minutes>();
         this.years = new HashMap<Integer, Years>();
+        this.months = new HashMap<Integer, Months>();
+        this.days = new HashMap<Integer, Days>();
+        this.hours = new HashMap<Integer, Hours>();
+        this.minutes = new HashMap<Integer, Minutes>();
     }
 
     public static Pool getInstance() {
@@ -38,6 +41,20 @@ public class Pool {
         }
 
         return (Years) result;
+    }
+
+    public static Months retrieveMonths(int numeral) {
+
+        Pool pool = Pool.getInstance();
+
+        Object result = pool.getMonths(numeral);
+
+        if (result == null) {
+            result =  new Months(numeral);
+            pool.addMonths(numeral, (Months) result);
+        }
+
+        return (Months) result;
     }
 
 
@@ -86,6 +103,10 @@ public class Pool {
         years.put(new Integer(numeral), year);
     }
 
+    private void addMonths(int numeral, Months month) {
+        months.put(new Integer(numeral), month);
+    }
+    
     private void addDay(int numeral, Days day) {
         days.put(new Integer(numeral), day);
     }
@@ -100,6 +121,12 @@ public class Pool {
 
     private Object getYears(int numeral){
         Object instance = years.get(new Integer(numeral));
+
+        return instance;
+    }
+
+    private Object getMonths(int numeral){
+        Object instance = months.get(new Integer(numeral));
 
         return instance;
     }
