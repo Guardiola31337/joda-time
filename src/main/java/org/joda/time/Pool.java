@@ -8,11 +8,13 @@ public class Pool {
     private HashMap<Integer, Days> days;
     private HashMap<Integer, Minutes> minutes;
     private HashMap<Integer, Hours> hours;
+    private HashMap<Integer, Years> years;
 
     private Pool() {
         this.hours = new HashMap<Integer, Hours>();
         this.days = new HashMap<Integer, Days>();
         this.minutes = new HashMap<Integer, Minutes>();
+        this.years = new HashMap<Integer, Years>();
     }
 
     public static Pool getInstance() {
@@ -24,24 +26,20 @@ public class Pool {
         return myInstance;
     }
 
-    private void addDay(int numeral, Days day) {
-        days.put(new Integer(numeral), day);
-    }
+    public static Years retrieveYears(int numeral) {
 
-
-
-    public static Days retrieveDays(int numeral) {
         Pool pool = Pool.getInstance();
 
-        Object result = pool.getDays(numeral);
+        Object result = pool.getYears(numeral);
 
         if (result == null) {
-            result =  new Days(numeral);
-            pool.addDay(numeral, (Days) result);
+            result =  new Years(numeral);
+            pool.addYears(numeral, (Years) result);
         }
 
-        return (Days) result;
+        return (Years) result;
     }
+
 
     public static Hours retrieveHours(int numeral) {
 
@@ -57,6 +55,18 @@ public class Pool {
         return (Hours) result;
     }
 
+    public static Days retrieveDays(int numeral) {
+        Pool pool = Pool.getInstance();
+
+        Object result = pool.getDays(numeral);
+
+        if (result == null) {
+            result =  new Days(numeral);
+            pool.addDay(numeral, (Days) result);
+        }
+
+        return (Days) result;
+    }
 
     public static Minutes retrieveMinutes(int numeral) {
 
@@ -72,6 +82,14 @@ public class Pool {
         return (Minutes) result;
     }
 
+    private void addYears(int numeral, Years year) {
+        years.put(new Integer(numeral), year);
+    }
+
+    private void addDay(int numeral, Days day) {
+        days.put(new Integer(numeral), day);
+    }
+
     private void addHours(int numeral, Hours hour) {
         hours.put(new Integer(numeral), hour);
     }
@@ -80,12 +98,16 @@ public class Pool {
         minutes.put(new Integer(numeral), minute);
     }
 
+    private Object getYears(int numeral){
+        Object instance = years.get(new Integer(numeral));
+
+        return instance;
+    }
 
     private Object getDays(int numeral){
         Object instance = days.get(new Integer(numeral));
 
         return instance;
-
     }
 
     private Object getHours(int numeral) {
