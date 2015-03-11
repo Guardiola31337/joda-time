@@ -42,27 +42,27 @@ import org.joda.time.format.PeriodFormatter;
 public final class Hours extends BaseSingleFieldPeriod {
 
     /** Constant representing zero hours. */
-    public static final Hours ZERO = new Hours(0);
+    public static final Hours ZERO = Pool.retrieveHours(0);
     /** Constant representing one hour. */
-    public static final Hours ONE = new Hours(1);
+    public static final Hours ONE = Pool.retrieveHours(1);
     /** Constant representing two hours. */
-    public static final Hours TWO = new Hours(2);
+    public static final Hours TWO = Pool.retrieveHours(2);
     /** Constant representing three hours. */
-    public static final Hours THREE = new Hours(3);
+    public static final Hours THREE = Pool.retrieveHours(3);
     /** Constant representing four hours. */
-    public static final Hours FOUR = new Hours(4);
+    public static final Hours FOUR = Pool.retrieveHours(4);
     /** Constant representing five hours. */
-    public static final Hours FIVE = new Hours(5);
+    public static final Hours FIVE = Pool.retrieveHours(5);
     /** Constant representing six hours. */
-    public static final Hours SIX = new Hours(6);
+    public static final Hours SIX = Pool.retrieveHours(6);
     /** Constant representing seven hours. */
-    public static final Hours SEVEN = new Hours(7);
+    public static final Hours SEVEN = Pool.retrieveHours(7);
     /** Constant representing eight hours. */
-    public static final Hours EIGHT = new Hours(8);
+    public static final Hours EIGHT = Pool.retrieveHours(8);
     /** Constant representing the maximum number of hours that can be stored in this object. */
-    public static final Hours MAX_VALUE = new Hours(Integer.MAX_VALUE);
+    public static final Hours MAX_VALUE = Pool.retrieveHours(Integer.MAX_VALUE);
     /** Constant representing the minimum number of hours that can be stored in this object. */
-    public static final Hours MIN_VALUE = new Hours(Integer.MIN_VALUE);
+    public static final Hours MIN_VALUE = Pool.retrieveHours(Integer.MIN_VALUE);
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.hours());
@@ -79,32 +79,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @return the instance of Hours
      */
     public static Hours hours(int hours) {
-        switch (hours) {
-            case 0:
-                return ZERO;
-            case 1:
-                return ONE;
-            case 2:
-                return TWO;
-            case 3:
-                return THREE;
-            case 4:
-                return FOUR;
-            case 5:
-                return FIVE;
-            case 6:
-                return SIX;
-            case 7:
-                return SEVEN;
-            case 8:
-                return EIGHT;
-            case Integer.MAX_VALUE:
-                return MAX_VALUE;
-            case Integer.MIN_VALUE:
-                return MIN_VALUE;
-            default:
-                return new Hours(hours);
-        }
+        return Pool.retrieveHours(hours);
     }
 
     //-----------------------------------------------------------------------
@@ -214,7 +189,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      *
      * @param hours  the number of hours to represent
      */
-    private Hours(int hours) {
+    protected Hours(int hours) {
         super(hours);
     }
 
