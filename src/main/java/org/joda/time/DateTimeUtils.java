@@ -344,9 +344,7 @@ public class DateTimeUtils {
      * @since 1.1
      */
     public static final boolean isContiguous(ReadablePartial partial) {
-        if (partial == null) {
-            throw new IllegalArgumentException("Partial must not be null");
-        }
+        checkNull(partial);
         DurationFieldType lastType = null;
         for (int i = 0; i < partial.size(); i++) {
             DateTimeField loopField = partial.getField(i);
@@ -358,6 +356,12 @@ public class DateTimeUtils {
             lastType = loopField.getDurationField().getType();
         }
         return true;
+    }
+
+    private static void checkNull(ReadablePartial partial) {
+        if (partial == null) {
+            throw new IllegalArgumentException("Partial must not be null");
+        }
     }
 
     //-----------------------------------------------------------------------
