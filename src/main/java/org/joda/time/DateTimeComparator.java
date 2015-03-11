@@ -61,6 +61,14 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     private final DateTimeFieldType iLowerLimit;
     /** The upper limit of fields to compare, null if no limit */
     private final DateTimeFieldType iUpperLimit;
+    private final Limits iLimits;
+
+    protected DateTimeComparator(Limits limits) {
+        super();
+        iLowerLimit = limits.lower();
+        iUpperLimit = limits.upper();
+        iLimits = limits;
+    }
 
     //-----------------------------------------------------------------------
     /**
@@ -103,16 +111,18 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * @return a comparator over all fields between the limits
      */
     public static DateTimeComparator getInstance(DateTimeFieldType lowerLimit, DateTimeFieldType upperLimit) {
-        if (lowerLimit == null && upperLimit == null) {
+        Limits limits = new Limits(lowerLimit, upperLimit);
+
+        if (limits.noLimits()) {
             return ALL_INSTANCE;
         }
-        if (lowerLimit == DateTimeFieldType.dayOfYear() && upperLimit == null) {
+        if (limits.limitedByDate()) {
             return DATE_INSTANCE;
         }
-        if (lowerLimit == null && upperLimit == DateTimeFieldType.dayOfYear()) {
+        if (limits.limitedByYear()) {
             return TIME_INSTANCE;
         }
-        return new DateTimeComparator(lowerLimit, upperLimit);
+        return new DateTimeComparator(limits);
     }
 
     /**
@@ -155,6 +165,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
         super();
         iLowerLimit = lowerLimit;
         iUpperLimit = upperLimit;
+        iLimits = new Limits(lowerLimit, upperLimit);
     }
 
     //-----------------------------------------------------------------------
@@ -164,7 +175,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * @return the field type, null if no upper limit
      */
     public DateTimeFieldType getLowerLimit() {
-        return iLowerLimit;
+        return iLimits.lower();
     }
 
     /**
@@ -173,7 +184,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * @return the field type, null if no upper limit
      */
     public DateTimeFieldType getUpperLimit() {
-        return iUpperLimit;
+        return iLimits.upper();
     }
 
     /**
@@ -197,15 +208,8 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
         Chronology rhsChrono = conv.getChronology(rhsObj, (Chronology) null);
         long rhsMillis = conv.getInstantMillis(rhsObj, rhsChrono);
 
-        if (iLowerLimit != null) {
-            lhsMillis = iLowerLimit.getField(lhsChrono).roundFloor(lhsMillis);
-            rhsMillis = iLowerLimit.getField(rhsChrono).roundFloor(rhsMillis);
-        }
-
-        if (iUpperLimit != null) {
-            lhsMillis = iUpperLimit.getField(lhsChrono).remainder(lhsMillis);
-            rhsMillis = iUpperLimit.getField(rhsChrono).remainder(rhsMillis);
-        }
+        rhsMillis = iLimits.apply(rhsChrono, rhsMillis);
+        lhsMillis = iLimits.apply(lhsChrono, lhsMillis);
 
         if (lhsMillis < rhsMillis) {
             return -1;
@@ -216,6 +220,8 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
         }
     }
 
+
+
     //-----------------------------------------------------------------------
     /**
      * Support serialization singletons.
@@ -223,7 +229,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * @return the resolved singleton instance
      */
     private Object readResolve() {
-        return getInstance(iLowerLimit, iUpperLimit);
+        return getInstance(iLimits.lower(), iLimits.upper());
     }
 
     /**
@@ -235,18 +241,18 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     public boolean equals(Object object) {
         if (object instanceof DateTimeComparator) {
             DateTimeComparator other = (DateTimeComparator) object;
-            return (iLowerLimit == other.getLowerLimit() ||
-                    (iLowerLimit != null && iLowerLimit.equals(other.getLowerLimit()))) &&
-                   (iUpperLimit == other.getUpperLimit() ||
-                    (iUpperLimit != null && iUpperLimit.equals(other.getUpperLimit())));
+            return iLimits.equals(other.limits());
         }
         return false;
     }
 
+    private Limits limits() {
+        return iLimits;
+    }
+
     /**
      * Gets a suitable hashcode.
-     * 
-     * @return the hashcode
+     *
      */
     public int hashCode() {
         return (iLowerLimit == null ? 0 : iLowerLimit.hashCode()) +

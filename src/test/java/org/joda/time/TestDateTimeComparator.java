@@ -178,7 +178,7 @@ public class TestDateTimeComparator extends TestCase {
     public void testClass() {
         assertEquals(true, Modifier.isPublic(DateTimeComparator.class.getModifiers()));
         assertEquals(false, Modifier.isFinal(DateTimeComparator.class.getModifiers()));
-        assertEquals(1, DateTimeComparator.class.getDeclaredConstructors().length);
+        assertEquals(2, DateTimeComparator.class.getDeclaredConstructors().length);
         assertEquals(true, Modifier.isProtected(DateTimeComparator.class.getDeclaredConstructors()[0].getModifiers()));
     }
     
