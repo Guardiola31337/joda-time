@@ -42,17 +42,17 @@ import org.joda.time.format.PeriodFormatter;
 public final class Weeks extends BaseSingleFieldPeriod {
 
     /** Constant representing zero weeks. */
-    public static final Weeks ZERO = new Weeks(0);
+    public static final Weeks ZERO = Pool.retrieveWeeks(0);
     /** Constant representing one week. */
-    public static final Weeks ONE = new Weeks(1);
+    public static final Weeks ONE = Pool.retrieveWeeks(1);
     /** Constant representing two weeks. */
-    public static final Weeks TWO = new Weeks(2);
+    public static final Weeks TWO = Pool.retrieveWeeks(2);
     /** Constant representing three weeks. */
-    public static final Weeks THREE = new Weeks(3);
+    public static final Weeks THREE = Pool.retrieveWeeks(3);
     /** Constant representing the maximum number of weeks that can be stored in this object. */
-    public static final Weeks MAX_VALUE = new Weeks(Integer.MAX_VALUE);
+    public static final Weeks MAX_VALUE = Pool.retrieveWeeks(Integer.MAX_VALUE);
     /** Constant representing the minimum number of weeks that can be stored in this object. */
-    public static final Weeks MIN_VALUE = new Weeks(Integer.MIN_VALUE);
+    public static final Weeks MIN_VALUE = Pool.retrieveWeeks(Integer.MIN_VALUE);
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.weeks());
@@ -69,22 +69,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * @return the instance of Weeks
      */
     public static Weeks weeks(int weeks) {
-        switch (weeks) {
-            case 0:
-                return ZERO;
-            case 1:
-                return ONE;
-            case 2:
-                return TWO;
-            case 3:
-                return THREE;
-            case Integer.MAX_VALUE:
-                return MAX_VALUE;
-            case Integer.MIN_VALUE:
-                return MIN_VALUE;
-            default:
-                return new Weeks(weeks);
-        }
+        return Pool.retrieveWeeks(weeks);
     }
 
     //-----------------------------------------------------------------------
@@ -194,7 +179,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      *
      * @param weeks  the number of weeks to represent
      */
-    private Weeks(int weeks) {
+    protected Weeks(int weeks) {
         super(weeks);
     }
 
