@@ -42,17 +42,17 @@ import org.joda.time.format.PeriodFormatter;
 public final class Seconds extends BaseSingleFieldPeriod {
 
     /** Constant representing zero seconds. */
-    public static final Seconds ZERO = new Seconds(0);
+    public static final Seconds ZERO = Pool.retrieveSeconds(0);
     /** Constant representing one second. */
-    public static final Seconds ONE = new Seconds(1);
+    public static final Seconds ONE = Pool.retrieveSeconds(1);
     /** Constant representing two seconds. */
-    public static final Seconds TWO = new Seconds(2);
+    public static final Seconds TWO = Pool.retrieveSeconds(2);
     /** Constant representing three seconds. */
-    public static final Seconds THREE = new Seconds(3);
+    public static final Seconds THREE = Pool.retrieveSeconds(3);
     /** Constant representing the maximum number of seconds that can be stored in this object. */
-    public static final Seconds MAX_VALUE = new Seconds(Integer.MAX_VALUE);
+    public static final Seconds MAX_VALUE = Pool.retrieveSeconds(Integer.MAX_VALUE);
     /** Constant representing the minimum number of seconds that can be stored in this object. */
-    public static final Seconds MIN_VALUE = new Seconds(Integer.MIN_VALUE);
+    public static final Seconds MIN_VALUE = Pool.retrieveSeconds(Integer.MIN_VALUE);
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.seconds());
@@ -69,22 +69,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @return the instance of Seconds
      */
     public static Seconds seconds(int seconds) {
-        switch (seconds) {
-            case 0:
-                return ZERO;
-            case 1:
-                return ONE;
-            case 2:
-                return TWO;
-            case 3:
-                return THREE;
-            case Integer.MAX_VALUE:
-                return MAX_VALUE;
-            case Integer.MIN_VALUE:
-                return MIN_VALUE;
-            default:
-                return new Seconds(seconds);
-        }
+        return Pool.retrieveSeconds(seconds);
     }
 
     //-----------------------------------------------------------------------
@@ -194,7 +179,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      *
      * @param seconds  the number of seconds to represent
      */
-    private Seconds(int seconds) {
+    protected Seconds(int seconds) {
         super(seconds);
     }
 
