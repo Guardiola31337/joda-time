@@ -58,15 +58,12 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     private static final DateTimeComparator TIME_INSTANCE = new DateTimeComparator(null, DateTimeFieldType.dayOfYear());
 
     /** The lower limit of fields to compare, null if no limit */
-    private final DateTimeFieldType iLowerLimit;
-    /** The upper limit of fields to compare, null if no limit */
-    private final DateTimeFieldType iUpperLimit;
+
     private final Limits iLimits;
 
     protected DateTimeComparator(Limits limits) {
         super();
-        iLowerLimit = limits.lower();
-        iUpperLimit = limits.upper();
+
         iLimits = limits;
     }
 
@@ -163,8 +160,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      */
     protected DateTimeComparator(DateTimeFieldType lowerLimit, DateTimeFieldType upperLimit) {
         super();
-        iLowerLimit = lowerLimit;
-        iUpperLimit = upperLimit;
+
         iLimits = new Limits(lowerLimit, upperLimit);
     }
 
@@ -255,8 +251,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      *
      */
     public int hashCode() {
-        return (iLowerLimit == null ? 0 : iLowerLimit.hashCode()) +
-               (123 * (iUpperLimit == null ? 0 : iUpperLimit.hashCode()));
+        return iLimits.hashCode();
     }
 
     /**
@@ -265,15 +260,15 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * @return a debugging string
      */
     public String toString() {
-        if (iLowerLimit == iUpperLimit) {
+        if (iLimits.hasNoSize()) {
             return "DateTimeComparator["
-                + (iLowerLimit == null ? "" : iLowerLimit.getName())
+                + (iLimits.lowerName())
                 + "]";
         } else {
             return "DateTimeComparator["
-                + (iLowerLimit == null ? "" : iLowerLimit.getName())
+                + (iLimits.lowerName())
                 + "-"
-                + (iUpperLimit == null ? "" : iUpperLimit.getName())
+                + (iLimits.upperName())
                 + "]";
         }
     }

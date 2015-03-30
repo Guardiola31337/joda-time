@@ -53,17 +53,43 @@ public class Limits implements Serializable {
         return lower.getField(chrono).roundFloor(millis);
     }
 
-    public boolean equals(Object other) {
-        Limits casted = (Limits) other;
-
-        if(!(casted instanceof Limits) || casted == null) return false;
-        if (lower == null || upper == null) return false;
-        System.out.print(upper.equals(casted.upper()));
-
-        boolean lowerMatches = lower == casted.lower() || lower.equals(casted.lower());
-        boolean upperMatches = upper == casted.upper() || upper.equals(casted.upper());
-
-        return lowerMatches && upperMatches;
+    public boolean hasNoSize() {
+        return lower == upper;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Limits limits = (Limits) o;
+
+        if (lower != null ? !lower.equals(limits.lower) : limits.lower != null) return false;
+        if (upper != null ? !upper.equals(limits.upper) : limits.upper != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lower != null ? lower.hashCode() : 0;
+        result = 31 * result + (upper != null ? upper.hashCode() : 0);
+        return result;
+    }
+
+    public String lowerName() {
+        String result = "";
+        if (lower != null) {
+            result = lower.getName();
+        }
+        return result;
+    }
+
+    public String upperName() {
+        String result = "";
+        if (upper != null) {
+            result = upper.getName();
+        }
+        return result;
+    }
 }
