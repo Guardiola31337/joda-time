@@ -29,6 +29,8 @@ Changes in 2.8.1
 
 - DateTimeZone data updated to version 2015e
 
+- Add Czech period translations [#313]
+
 
 
 Changes in 2.8.0
