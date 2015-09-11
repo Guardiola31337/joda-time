@@ -481,6 +481,10 @@ public abstract class DateTimeFieldType implements Serializable {
             return iRangeType;
         }
 
+        public ChronologyDateTimeField getChronology() {
+            return iChronology;
+        }
+
         /** @inheritdoc */
         @Override
         public boolean equals(Object obj) {
@@ -502,58 +506,13 @@ public abstract class DateTimeFieldType implements Serializable {
         /** @inheritdoc */
         public DateTimeField getField(Chronology chronology) {
             chronology = DateTimeUtils.getChronology(chronology);
+            StandardDateTimeFieldTypePool pool = StandardDateTimeFieldTypePool.getInstance();
+            StandardDateTimeFieldType standardDateTimeFieldType = pool.obtain(iOrdinal);
 
-            switch (iOrdinal) {
-                case ERA:
-                    return chronology.era();
-                case YEAR_OF_ERA:
-                    return chronology.yearOfEra();
-                case CENTURY_OF_ERA:
-                    return chronology.centuryOfEra();
-                case YEAR_OF_CENTURY:
-                    return chronology.yearOfCentury();
-                case YEAR:
-                    return chronology.year();
-                case DAY_OF_YEAR:
-                    return chronology.dayOfYear();
-                case MONTH_OF_YEAR:
-                    return chronology.monthOfYear();
-                case DAY_OF_MONTH:
-                    return chronology.dayOfMonth();
-                case WEEKYEAR_OF_CENTURY:
-                    return chronology.weekyearOfCentury();
-                case WEEKYEAR:
-                    return chronology.weekyear();
-                case WEEK_OF_WEEKYEAR:
-                    return chronology.weekOfWeekyear();
-                case DAY_OF_WEEK:
-                    return chronology.dayOfWeek();
-                case HALFDAY_OF_DAY:
-                    return chronology.halfdayOfDay();
-                case HOUR_OF_HALFDAY:
-                    return chronology.hourOfHalfday();
-                case CLOCKHOUR_OF_HALFDAY:
-                    return chronology.clockhourOfHalfday();
-                case CLOCKHOUR_OF_DAY:
-                    return chronology.clockhourOfDay();
-                case HOUR_OF_DAY:
-                    return chronology.hourOfDay();
-                case MINUTE_OF_DAY:
-                    return chronology.minuteOfDay();
-                case MINUTE_OF_HOUR:
-                    return chronology.minuteOfHour();
-                case SECOND_OF_DAY:
-                    return chronology.secondOfDay();
-                case SECOND_OF_MINUTE:
-                    return chronology.secondOfMinute();
-                case MILLIS_OF_DAY:
-                    return chronology.millisOfDay();
-                case MILLIS_OF_SECOND:
-                    return chronology.millisOfSecond();
-                default:
-                    // Shouldn't happen.
-                    throw new InternalError();
-            }
+            if (standardDateTimeFieldType == null) throw new InternalError();
+
+            ChronologyDateTimeField field = standardDateTimeFieldType.getChronology();
+            return field.obtain(chronology);
         }
 
         /**
