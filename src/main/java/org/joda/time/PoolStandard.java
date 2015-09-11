@@ -11,14 +11,14 @@ public abstract class PoolStandard<T> implements PoolRetrieverStandard<T> {
   }
 
   protected abstract T create(String name, byte ordinal, DurationFieldType unitType,
-      DurationFieldType rangeType);
+      DurationFieldType rangeType, ChronologyDateTimeField field);
 
   public T retrieve(String name, byte ordinal, DurationFieldType unitType,
-      DurationFieldType rangeType) {
+      DurationFieldType rangeType, ChronologyDateTimeField field) {
     T result = obtain(ordinal);
 
     if (result == null) {
-      result = create(name, ordinal, unitType, rangeType);
+      result = create(name, ordinal, unitType, rangeType, field);
       add(ordinal, result);
     }
 
