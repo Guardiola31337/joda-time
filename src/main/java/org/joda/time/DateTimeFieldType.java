@@ -71,75 +71,89 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /** The era field type. */
     private static final DateTimeFieldType ERA_TYPE = create("era", ERA, DurationFieldType.eras(),
-        null);
+        null, new ChronologyEra());
     /** The yearOfEra field type. */
     private static final DateTimeFieldType YEAR_OF_ERA_TYPE = create("yearOfEra", YEAR_OF_ERA,
-        DurationFieldType.years(), DurationFieldType.eras());
+        DurationFieldType.years(), DurationFieldType.eras(), new ChronologyYearOfEra());
     /** The centuryOfEra field type. */
     private static final DateTimeFieldType CENTURY_OF_ERA_TYPE = create("centuryOfEra",
-        CENTURY_OF_ERA, DurationFieldType.centuries(), DurationFieldType.eras());
+        CENTURY_OF_ERA, DurationFieldType.centuries(), DurationFieldType.eras(),
+        new ChronologyCenturyOfEra());
     /** The yearOfCentury field type. */
     private static final DateTimeFieldType YEAR_OF_CENTURY_TYPE = create("yearOfCentury",
-        YEAR_OF_CENTURY, DurationFieldType.years(), DurationFieldType.centuries());
+        YEAR_OF_CENTURY, DurationFieldType.years(), DurationFieldType.centuries(),
+        new ChronologyYearOfCentury());
     /** The year field type. */
     private static final DateTimeFieldType YEAR_TYPE = create("year", YEAR,
-        DurationFieldType.years(), null);
+        DurationFieldType.years(), null, new ChronologyYear());
     /** The dayOfYear field type. */
     private static final DateTimeFieldType DAY_OF_YEAR_TYPE = create("dayOfYear", DAY_OF_YEAR,
-        DurationFieldType.days(), DurationFieldType.years());
+        DurationFieldType.days(), DurationFieldType.years(), new ChronologyDayOfYear());
     /** The monthOfYear field type. */
     private static final DateTimeFieldType MONTH_OF_YEAR_TYPE = create("monthOfYear",
-        MONTH_OF_YEAR, DurationFieldType.months(), DurationFieldType.years());
+        MONTH_OF_YEAR, DurationFieldType.months(), DurationFieldType.years(),
+        new ChronologyMonthOfYear());
     /** The dayOfMonth field type. */
     private static final DateTimeFieldType DAY_OF_MONTH_TYPE = create("dayOfMonth", DAY_OF_MONTH,
-        DurationFieldType.days(), DurationFieldType.months());
+        DurationFieldType.days(), DurationFieldType.months(), new ChronologyDayOfMonth());
     /** The weekyearOfCentury field type. */
     private static final DateTimeFieldType WEEKYEAR_OF_CENTURY_TYPE = create("weekyearOfCentury",
-        WEEKYEAR_OF_CENTURY, DurationFieldType.weekyears(), DurationFieldType.centuries());
+        WEEKYEAR_OF_CENTURY, DurationFieldType.weekyears(), DurationFieldType.centuries(),
+        new ChronologyWeekyearOfCentury());
     /** The weekyear field type. */
     private static final DateTimeFieldType WEEKYEAR_TYPE = create("weekyear", WEEKYEAR,
-        DurationFieldType.weekyears(), null);
+        DurationFieldType.weekyears(), null, new ChronologyWeekyear());
     /** The weekOfWeekyear field type. */
     private static final DateTimeFieldType WEEK_OF_WEEKYEAR_TYPE = create("weekOfWeekyear",
-        WEEK_OF_WEEKYEAR, DurationFieldType.weeks(), DurationFieldType.weekyears());
+        WEEK_OF_WEEKYEAR, DurationFieldType.weeks(), DurationFieldType.weekyears(),
+        new ChronologyWeekOfWeekyear());
     /** The dayOfWeek field type. */
     private static final DateTimeFieldType DAY_OF_WEEK_TYPE = create("dayOfWeek", DAY_OF_WEEK,
-        DurationFieldType.days(), DurationFieldType.weeks());
+        DurationFieldType.days(), DurationFieldType.weeks(), new ChronologyDayOfWeek());
 
     /** The halfday field type. */
     private static final DateTimeFieldType HALFDAY_OF_DAY_TYPE = create("halfdayOfDay",
-        HALFDAY_OF_DAY, DurationFieldType.halfdays(), DurationFieldType.days());
+        HALFDAY_OF_DAY, DurationFieldType.halfdays(), DurationFieldType.days(),
+        new ChronologyHalfdayOfDay());
     /** The hourOfHalfday field type. */
     private static final DateTimeFieldType HOUR_OF_HALFDAY_TYPE = create("hourOfHalfday",
-        HOUR_OF_HALFDAY, DurationFieldType.hours(), DurationFieldType.halfdays());
+        HOUR_OF_HALFDAY, DurationFieldType.hours(), DurationFieldType.halfdays(),
+        new ChronologyHourOfHalfday());
     /** The clockhourOfHalfday field type. */
-    private static final DateTimeFieldType CLOCKHOUR_OF_HALFDAY_TYPE = create(
-        "clockhourOfHalfday", CLOCKHOUR_OF_HALFDAY, DurationFieldType.hours(),
-        DurationFieldType.halfdays());
+    private static final DateTimeFieldType CLOCKHOUR_OF_HALFDAY_TYPE = create("clockhourOfHalfday",
+        CLOCKHOUR_OF_HALFDAY, DurationFieldType.hours(), DurationFieldType.halfdays(),
+        new ChronologyClockhourOfHalfday());
     /** The clockhourOfDay field type. */
     private static final DateTimeFieldType CLOCKHOUR_OF_DAY_TYPE = create("clockhourOfDay",
-        CLOCKHOUR_OF_DAY, DurationFieldType.hours(), DurationFieldType.days());
+        CLOCKHOUR_OF_DAY, DurationFieldType.hours(), DurationFieldType.days(),
+        new ChronologyClockhourOfDay());
     /** The hourOfDay field type. */
     private static final DateTimeFieldType HOUR_OF_DAY_TYPE = create("hourOfDay", HOUR_OF_DAY,
-        DurationFieldType.hours(), DurationFieldType.days());
+        DurationFieldType.hours(), DurationFieldType.days(), new ChronologyHourOfDay());
     /** The minuteOfDay field type. */
     private static final DateTimeFieldType MINUTE_OF_DAY_TYPE = create("minuteOfDay",
-        MINUTE_OF_DAY, DurationFieldType.minutes(), DurationFieldType.days());
+        MINUTE_OF_DAY, DurationFieldType.minutes(), DurationFieldType.days(),
+        new ChronologyMinuteOfDay());
     /** The minuteOfHour field type. */
     private static final DateTimeFieldType MINUTE_OF_HOUR_TYPE = create("minuteOfHour",
-        MINUTE_OF_HOUR, DurationFieldType.minutes(), DurationFieldType.hours());
+        MINUTE_OF_HOUR, DurationFieldType.minutes(), DurationFieldType.hours(),
+        new ChronologyMinuteOfHour());
     /** The secondOfDay field type. */
     private static final DateTimeFieldType SECOND_OF_DAY_TYPE = create("secondOfDay",
-        SECOND_OF_DAY, DurationFieldType.seconds(), DurationFieldType.days());
+        SECOND_OF_DAY, DurationFieldType.seconds(), DurationFieldType.days(),
+        new ChronologySecondOfDay());
     /** The secondOfMinute field type. */
     private static final DateTimeFieldType SECOND_OF_MINUTE_TYPE = create("secondOfMinute",
-        SECOND_OF_MINUTE, DurationFieldType.seconds(), DurationFieldType.minutes());
+        SECOND_OF_MINUTE, DurationFieldType.seconds(), DurationFieldType.minutes(),
+        new ChronologySecondOfMinute());
     /** The millisOfDay field type. */
     private static final DateTimeFieldType MILLIS_OF_DAY_TYPE = create("millisOfDay",
-        MILLIS_OF_DAY, DurationFieldType.millis(), DurationFieldType.days());
+        MILLIS_OF_DAY, DurationFieldType.millis(), DurationFieldType.days(),
+        new ChronologyMillisOfDay());
     /** The millisOfSecond field type. */
     private static final DateTimeFieldType MILLIS_OF_SECOND_TYPE = create("millisOfSecond",
-        MILLIS_OF_SECOND, DurationFieldType.millis(), DurationFieldType.seconds());
+        MILLIS_OF_SECOND, DurationFieldType.millis(), DurationFieldType.seconds(),
+        new ChronologyMillisOfSecond());
 
     /** The name of the field. */
     private final String iName;
@@ -421,9 +435,9 @@ public abstract class DateTimeFieldType implements Serializable {
     }
 
     public static StandardDateTimeFieldType create(String name, byte ordinal,
-        DurationFieldType unitType, DurationFieldType rangeType) {
+        DurationFieldType unitType, DurationFieldType rangeType, ChronologyDateTimeField field) {
         StandardDateTimeFieldTypePool pool = StandardDateTimeFieldTypePool.getInstance();
-        return pool.retrieve(name, ordinal, unitType, rangeType);
+        return pool.retrieve(name, ordinal, unitType, rangeType, field);
     }
 
     private static class StandardDateTimeFieldType extends DateTimeFieldType {
@@ -437,6 +451,7 @@ public abstract class DateTimeFieldType implements Serializable {
         private final transient DurationFieldType iUnitType;
         /** The range duration of the field. */
         private final transient DurationFieldType iRangeType;
+        private final transient ChronologyDateTimeField iChronology;
 
         /**
          * Constructor.
@@ -447,11 +462,13 @@ public abstract class DateTimeFieldType implements Serializable {
          * @param rangeType  the range duration type
          */
         StandardDateTimeFieldType(String name, byte ordinal,
-                                  DurationFieldType unitType, DurationFieldType rangeType) {
+            DurationFieldType unitType, DurationFieldType rangeType,
+            ChronologyDateTimeField chronology) {
             super(name);
             iOrdinal = ordinal;
             iUnitType = unitType;
             iRangeType = rangeType;
+            iChronology = chronology;
         }
 
         /** @inheritdoc */
@@ -572,8 +589,9 @@ public abstract class DateTimeFieldType implements Serializable {
 
         @Override
         protected StandardDateTimeFieldType create(String name, byte ordinal,
-            DurationFieldType unitType, DurationFieldType rangeType) {
-            return new StandardDateTimeFieldType(name, ordinal, unitType, rangeType);
+            DurationFieldType unitType, DurationFieldType rangeType,
+            ChronologyDateTimeField field) {
+            return new StandardDateTimeFieldType(name, ordinal, unitType, rangeType, field);
         }
     }
 }
