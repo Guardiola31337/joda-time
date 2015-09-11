@@ -146,7 +146,7 @@ public abstract class DateTimeFieldType implements Serializable {
     //-----------------------------------------------------------------------
     /**
      * Constructor.
-     * 
+     *
      * @param name  the name to use
      */
     protected DateTimeFieldType(String name) {
@@ -157,7 +157,7 @@ public abstract class DateTimeFieldType implements Serializable {
     //-----------------------------------------------------------------------
     /**
      * Get the millis of second field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType millisOfSecond() {
@@ -166,7 +166,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the millis of day field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType millisOfDay() {
@@ -175,7 +175,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the second of minute field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType secondOfMinute() {
@@ -184,7 +184,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the second of day field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType secondOfDay() {
@@ -193,7 +193,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the minute of hour field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType minuteOfHour() {
@@ -202,7 +202,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the minute of day field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType minuteOfDay() {
@@ -211,7 +211,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the hour of day (0-23) field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType hourOfDay() {
@@ -220,7 +220,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the hour of day (offset to 1-24) field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType clockhourOfDay() {
@@ -229,7 +229,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the hour of am/pm (0-11) field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType hourOfHalfday() {
@@ -238,7 +238,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the hour of am/pm (offset to 1-12) field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType clockhourOfHalfday() {
@@ -247,7 +247,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the AM(0) PM(1) field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType halfdayOfDay() {
@@ -257,7 +257,7 @@ public abstract class DateTimeFieldType implements Serializable {
     //-----------------------------------------------------------------------
     /**
      * Get the day of week field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType dayOfWeek() {
@@ -266,7 +266,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the day of month field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType dayOfMonth() {
@@ -275,7 +275,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the day of year field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType dayOfYear() {
@@ -284,7 +284,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the week of a week based year field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType weekOfWeekyear() {
@@ -293,7 +293,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the year of a week based year field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType weekyear() {
@@ -302,7 +302,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the year of a week based year within a century field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType weekyearOfCentury() {
@@ -311,7 +311,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the month of year field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType monthOfYear() {
@@ -320,7 +320,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the year field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType year() {
@@ -329,7 +329,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the year of era field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType yearOfEra() {
@@ -338,7 +338,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the year of century field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType yearOfCentury() {
@@ -347,7 +347,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the century of era field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType centuryOfEra() {
@@ -356,7 +356,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the era field type.
-     * 
+     *
      * @return the DateTimeFieldType constant
      */
     public static DateTimeFieldType era() {
@@ -371,7 +371,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * the (singular) duration unit field name and "Rrr" represents the (singular)
      * duration range field name. If the range field is not applicable, then
      * the name of the field is simply the (singular) duration field name.
-     * 
+     *
      * @return field name
      */
     public String getName() {
@@ -380,14 +380,14 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get the duration unit of the field.
-     * 
+     *
      * @return duration unit of the field, never null
      */
     public abstract DurationFieldType getDurationType();
 
     /**
      * Get the duration range of the field.
-     * 
+     *
      * @return duration range of the field, null if unbounded
      */
     public abstract DurationFieldType getRangeDurationType();
@@ -412,7 +412,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
     /**
      * Get a suitable debug string.
-     * 
+     *
      * @return debug string
      */
     public String toString() {
@@ -433,7 +433,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
         /**
          * Constructor.
-         * 
+         *
          * @param name  the name to use
          * @param ordinal  the byte value for the oridinal index
          * @param unitType  the unit duration type
@@ -534,7 +534,7 @@ public abstract class DateTimeFieldType implements Serializable {
 
         /**
          * Ensure a singleton is returned.
-         * 
+         *
          * @return the singleton type
          */
         private Object readResolve() {
@@ -592,4 +592,26 @@ public abstract class DateTimeFieldType implements Serializable {
         }
     }
 
+    private static class StandardDateTimeFieldTypePool
+        extends PoolStandard<StandardDateTimeFieldType> {
+
+        private static StandardDateTimeFieldTypePool myInstance;
+
+        private StandardDateTimeFieldTypePool() {
+        }
+
+        public static StandardDateTimeFieldTypePool getInstance() {
+            if (myInstance == null) {
+                myInstance = new StandardDateTimeFieldTypePool();
+            }
+
+            return myInstance;
+        }
+
+        @Override
+        protected StandardDateTimeFieldType create(String name, byte ordinal,
+            DurationFieldType unitType, DurationFieldType rangeType) {
+            return new StandardDateTimeFieldType(name, ordinal, unitType, rangeType);
+        }
+    }
 }
