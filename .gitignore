@@ -16,3 +16,12 @@
 src/tz-data/
 *TempTest*
 /src/main/resources/org/joda/time/tz/data/
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
