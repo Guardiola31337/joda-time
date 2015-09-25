@@ -368,7 +368,7 @@ public class DateTimeUtils {
     /**
      * Gets the {@link DateFormatSymbols} based on the given locale.
      * <p>
-     * If JDK 6 or newer is being used, DateFormatSymbols.retrieve(locale) will
+     * If JDK 6 or newer is being used, DateFormatSymbols.getInstance(locale) will
      * be used in order to allow the use of locales defined as extensions.
      * Otherwise, new DateFormatSymbols(locale) will be used.
      * See JDK 6 {@link DateFormatSymbols} for further information.

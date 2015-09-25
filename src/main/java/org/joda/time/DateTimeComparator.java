@@ -216,8 +216,6 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
         }
     }
 
-
-
     //-----------------------------------------------------------------------
     /**
      * Support serialization singletons.
@@ -249,6 +247,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     /**
      * Gets a suitable hashcode.
      *
+     * @return the hashcode
      */
     public int hashCode() {
         return iLimits.hashCode();
