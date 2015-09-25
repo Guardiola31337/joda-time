@@ -30,7 +30,7 @@ import org.joda.time.format.PeriodFormatter;
  * type-safe way of representing a number of days in an application.
  * <p>
  * The number of days is set in the constructor, and may be queried using
- * <code>retrieveDays()</code>. Basic mathematical operations are provided -
+ * <code>getDays()</code>. Basic mathematical operations are provided -
  * <code>plus()</code>, <code>minus()</code>, <code>multipliedBy()</code> and
  * <code>dividedBy()</code>.
  * <p>
