@@ -246,7 +246,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
 
     /**
      * Gets a suitable hashcode.
-     *
+     * 
      * @return the hashcode
      */
     public int hashCode() {
