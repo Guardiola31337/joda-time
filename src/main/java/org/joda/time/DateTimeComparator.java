@@ -70,7 +70,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     //-----------------------------------------------------------------------
     /**
      * Returns a DateTimeComparator the compares the entire date time value.
-     * 
+     *
      * @return a comparator over all fields
      */
     public static DateTimeComparator getInstance() {
@@ -130,7 +130,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * The input millis are rounded down to the start of the day
      * in the time-zone of that input value. Thus, two inputs with
      * different time-zones will typically not be equal
-     * 
+     *
      * @return a comparator over all date fields
      */
     public static DateTimeComparator getDateOnlyInstance() {
@@ -145,7 +145,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
      * The input millis are truncated to be within the day
      * in the time-zone of that input value. Thus, two inputs with
      * different time-zones will typically not be equal
-     * 
+     *
      * @return a comparator over all time fields
      */
     public static DateTimeComparator getTimeOnlyInstance() {
@@ -154,7 +154,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
 
     /**
      * Restricted constructor.
-     * 
+     *
      * @param lowerLimit  the lower field limit, null means no limit
      * @param upperLimit  the upper field limit, null means no limit
      */
@@ -167,7 +167,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     //-----------------------------------------------------------------------
     /**
      * Gets the field type that represents the lower limit of comparison.
-     * 
+     *
      * @return the field type, null if no upper limit
      */
     public DateTimeFieldType getLowerLimit() {
@@ -176,7 +176,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
 
     /**
      * Gets the field type that represents the upper limit of comparison.
-     * 
+     *
      * @return the field type, null if no upper limit
      */
     public DateTimeFieldType getUpperLimit() {
@@ -186,7 +186,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     /**
      * Compare two objects against only the range of date time fields as
      * specified in the constructor.
-     * 
+     *
      * @param lhsObj  the first object,
      *      logically on the left of a &lt; comparison, null means now
      * @param rhsObj  the second object,
@@ -199,7 +199,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
         InstantConverter conv = ConverterManager.getInstance().getInstantConverter(lhsObj);
         Chronology lhsChrono = conv.getChronology(lhsObj, (Chronology) null);
         long lhsMillis = conv.getInstantMillis(lhsObj, lhsChrono);
-        
+
         conv = ConverterManager.getInstance().getInstantConverter(rhsObj);
         Chronology rhsChrono = conv.getChronology(rhsObj, (Chronology) null);
         long rhsMillis = conv.getInstantMillis(rhsObj, rhsChrono);
@@ -219,7 +219,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
     //-----------------------------------------------------------------------
     /**
      * Support serialization singletons.
-     * 
+     *
      * @return the resolved singleton instance
      */
     private Object readResolve() {
@@ -228,7 +228,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
 
     /**
      * Compares this comparator to another.
-     * 
+     *
      * @param object  the object to compare to
      * @return true if equal
      */
@@ -246,7 +246,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
 
     /**
      * Gets a suitable hashcode.
-     *
+     * 
      * @return the hashcode
      */
     public int hashCode() {
@@ -255,7 +255,7 @@ public class DateTimeComparator implements Comparator<Object>, Serializable {
 
     /**
      * Gets a debugging string.
-     * 
+     *
      * @return a debugging string
      */
     public String toString() {

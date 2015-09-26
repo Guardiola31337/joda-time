@@ -2,9 +2,6 @@ package org.joda.time;
 
 import java.io.Serializable;
 
-/**
- * Created by repli on 11/03/15.
- */
 public class Limits implements Serializable {
 
     private final DateTimeFieldType lower;
