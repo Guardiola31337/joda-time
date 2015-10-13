@@ -33,6 +33,8 @@ Changes in 2.8.1
 
 - Fix overflow bug in intervals [#315]
 
+- Better error message for malformed tzdb files [#319]
+
 
 - Increased performance of symbols lookup [#143]
   No API change
