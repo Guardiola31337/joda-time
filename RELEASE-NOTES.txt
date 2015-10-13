@@ -35,6 +35,8 @@ Changes in 2.8.1
 
 - Better error message for malformed tzdb files [#319]
 
+- Better error message for interval constructor [#321]
+
 
 - Increased performance of symbols lookup [#143]
   No API change
