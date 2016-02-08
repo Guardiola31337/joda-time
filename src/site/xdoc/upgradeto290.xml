@@ -1,10 +1,24 @@
-Joda-Time version 2.9.2
------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document>
+ <properties>
+  <title>Java date and time API - Upgrade from 2.8 to 2.9</title>
+  <author>Stephen Colebourne</author>
+ </properties>
+
+<body>
+
+<section name="Upgrade">
+<p>
+These are the release notes and advice for upgrading Joda-Time from version 2.8 to version 2.9.
+<source>
+Joda-Time version 2.9
+---------------------
 
 Joda-Time is a date and time handling library that seeks to replace the JDK
 Date and Calendar classes. For Java SE 8 and later, please use java.time instead.
 
-This release contains one bug fix, a time-zone update and some minor internal changes.
+This release contains enhancements, bug fixes and a time zone update.
 The release runs on JDK 5 or later.
 
 Joda-Time is licensed under the business-friendly Apache License Version 2.
@@ -14,24 +28,8 @@ This is the same license as all of Apache, plus other open source projects such 
 ** http://www.joda.org/joda-time/related.html **
 
 
-Bug fixes in 2.9.2
-------------------
- - Fix bug in time-zone binary search [#332]
-
- - DateTimeZone data updated to version 2016a (version 2.9 had time-zone data 2015g)
-
- - Minor fixes to code internals [#339, #326, #344, #350, #343]
- 
- - Better document behaviour [#325]
-
-
-Bug fixes in 2.9.1
-------------------
-- Fix bug introduced by Long.MIN_VALUE and Long.MAX_VALUE changes [#328]
-
-
-Enhancements in 2.9
--------------------
+Enhancements since 2.8
+----------------------
 - Faster parsing of time-zone identifiers [#282]
 
 - Added Interval.parseWithOffset(String) [#299, #296]
@@ -56,8 +54,8 @@ Enhancements in 2.9
 - Better error message for interval constructor [#321]
 
 
-Compatibility between 2.8 and 2.9
----------------------------------
+Compatibility with 2.8
+----------------------
 Build system - Yes
 
 Binary compatible - Yes
@@ -72,8 +70,8 @@ Data compatible - Yes
 Semantic compatible - Yes
 
 
-Bug fixes in 2.9
-----------------
+Bug fixes since 2.8
+-------------------
 - Fixed to handle JDK 8u60 [#288, #291]
   Without this fix, formatting a time-zone will print "+00:00" instead of "GMT" for the GMT time-zone
 
@@ -89,12 +87,9 @@ Scala
 Joda-Time uses annotations from Joda-Convert.
 In the Java programming language, this dependency is optional, however in Scala it is not.
 Scala users must manually add the Joda-Convert v1.2 dependency.
+</source>
+</p>
+</section>
 
-
-Feedback
---------
-Feedback is best received using GitHub issues and Pull Requests.
-https://github.com/JodaOrg/joda-time/
-
-The Joda team
-http://www.joda.org/joda-time/
+</body>
+</document>
